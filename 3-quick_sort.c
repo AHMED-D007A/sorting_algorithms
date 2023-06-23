@@ -32,12 +32,12 @@ int lomuto(int *array, int low, int high, int size)
 	{
 		if (array[j] <= pivot_val)
 		{
-			swapi(&array[i], &array[j], array, size);
+			swapi(&array[i], &array[j]);
 			print_array(array, size);
 			i++;
 		}
 	}
-	swapi(&array[i], &array[high], array, size);
+	swapi(&array[i], &array[high]);
 	print_array(array, size);
 
 	return (i);
