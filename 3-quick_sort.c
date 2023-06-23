@@ -4,17 +4,14 @@
  * swapi - swap two integers.
  * @n: the first integer.
  * @b:the second integer.
- * @array: the given array to be sorted.
- * @size: the size of the array.
 */
-void swapi(int *n, int *b, int *array, int size)
+void swapi(int *n, int *b)
 {
 	int temp;
 
 	temp = *b;
 	*b = *n;
 	*n = temp;
-	print_array(array, size);
 }
 
 /**
@@ -36,10 +33,12 @@ int lomuto(int *array, int low, int high, int size)
 		if (array[j] <= pivot_val)
 		{
 			swapi(&array[i], &array[j], array, size);
+			print_array(array, size);
 			i++;
 		}
 	}
 	swapi(&array[i], &array[high], array, size);
+	print_array(array, size);
 
 	return (i);
 }
@@ -72,5 +71,7 @@ void quicksort_recursion(int *array, int low, int high, int size)
 */
 void quick_sort(int *array, size_t size)
 {
+	if (array == NULL || size < 2)
+		return;
 	quicksort_recursion(array, 0, (int)size - 1, (int)size);
 }
